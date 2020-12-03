@@ -3,6 +3,7 @@ int index = 0;
 
 void setup() {
   size(400, 400);
+  frameRate(10);
   blanding(0, liste);
 }
 
@@ -16,6 +17,9 @@ void display(int plads, int[] talListe) {
   if (plads < talListe.length-1) {
     display(++plads, talListe);
   }
+}
+
+void sortering() {
 }
 
 int[] blanding(int plads, int[] talListe) {
