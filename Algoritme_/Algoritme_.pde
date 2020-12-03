@@ -14,6 +14,7 @@ void draw() {
 void display(int plads, int[] talListe) {
   int value = talListe[plads];
   rect(40*plads, height, 40, -20*value);
+  //text();
   if (plads < talListe.length-1) {
     display(++plads, talListe);
   }
