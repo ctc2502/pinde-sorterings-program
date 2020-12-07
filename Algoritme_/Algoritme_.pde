@@ -1,5 +1,6 @@
 int[] liste = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 int index = 0;
+int antalTryk = 0;
 PImage theoBaggrund;
 
 void setup() {
@@ -17,9 +18,14 @@ void draw() {
 }
 
 void mousePressed() {
+  if (antalTryk <= 9){
   int max = findMax(liste, index, index);
   byt(liste, index, max);
   index++;
+  antalTryk++;
+  } else {
+  println("Du har opbrugt dine tryk");
+  }
 }
 
 void display(int plads, int[] talListe) {
