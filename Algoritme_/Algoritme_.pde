@@ -1,30 +1,32 @@
 int[] liste = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 int index = 0;
+PImage theoBaggrund;
 
 void setup() {
   size(400, 400);
   frameRate(10);
+  theoBaggrund = loadImage("Theo_froe.png");
+  theoBaggrund.resize(400,400);
   blanding(0, liste);
 }
 
 void draw() {
   clear();
+  background(theoBaggrund);
   display(0, liste);
-  //println(findMax(liste, index, index));
-  //byt(liste, index, findMax(liste, 0, 0));
 }
 
 void mousePressed() {
   int max = findMax(liste, index, index);
-  println(index, " ", max);
   byt(liste, index, max);
-  println(max);
   index++;
 }
 void display(int plads, int[] talListe) {
   int value = talListe[plads];
   rect(40*plads, height, 40, -20*value);
-  //text();
+  fill(0);
+  text(talListe[plads], 40*plads, height);
+  fill(255);
   if (plads < talListe.length-1) {
     display(++plads, talListe);
   }
@@ -62,7 +64,6 @@ int[] blanding(int plads, int[] talListe) {
     blanding(++plads, liste);
     return talListe;
   } else {
-    //println(talListe);
     return talListe;
   }
 }
