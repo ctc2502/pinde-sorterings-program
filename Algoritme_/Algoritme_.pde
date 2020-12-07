@@ -6,7 +6,7 @@ void setup() {
   size(400, 400);
   frameRate(10);
   theoBaggrund = loadImage("Theo_froe.png");
-  theoBaggrund.resize(400,400);
+  theoBaggrund.resize(400, 400);
   blanding(0, liste);
 }
 
@@ -21,6 +21,7 @@ void mousePressed() {
   byt(liste, index, max);
   index++;
 }
+
 void display(int plads, int[] talListe) {
   int value = talListe[plads];
   rect(40*plads, height, 40, -20*value);
@@ -30,9 +31,6 @@ void display(int plads, int[] talListe) {
   if (plads < talListe.length-1) {
     display(++plads, talListe);
   }
-}
-
-void sortering() {
 }
 
 void byt(int[] talListe, int pointer1, int pointer2) {
