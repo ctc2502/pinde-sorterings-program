@@ -8,9 +8,19 @@ void setup() {
 }
 
 void draw() {
+  clear();
   display(0, liste);
+  //println(findMax(liste, index, index));
+  //byt(liste, index, findMax(liste, 0, 0));
 }
 
+void mousePressed() {
+  int max = findMax(liste, index, index);
+  println(index, " ", max);
+  byt(liste, index, max);
+  println(max);
+  index++;
+}
 void display(int plads, int[] talListe) {
   int value = talListe[plads];
   rect(40*plads, height, 40, -20*value);
@@ -21,6 +31,24 @@ void display(int plads, int[] talListe) {
 }
 
 void sortering() {
+}
+
+void byt(int[] talListe, int pointer1, int pointer2) {
+  int valueA = talListe[pointer1];
+  int valueB = talListe[pointer2];
+  talListe[pointer1] = valueB;
+  talListe[pointer2] = valueA;
+}
+
+int findMax(int[] talListe, int pointer, int maxV) {
+  if (pointer > talListe.length-2) {
+    return maxV;
+  }
+  if (talListe[pointer+1]>talListe[maxV]) {
+    return findMax(talListe, pointer+1, pointer+1);
+  } else {
+    return findMax(talListe, pointer+1, maxV);
+  }
 }
 
 int[] blanding(int plads, int[] talListe) {
@@ -34,7 +62,7 @@ int[] blanding(int plads, int[] talListe) {
     blanding(++plads, liste);
     return talListe;
   } else {
-    println(talListe);
+    //println(talListe);
     return talListe;
   }
 }
